@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 import axios from 'axios'
-import './App.css';
+
+import AppContainer from './components/StyleComponents/AppStyles'
+import FriendsList from './components/FriendsList'
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-      </div>
+      <AppContainer>
+        <FriendsList />
+      </AppContainer>
     );
   }
 }
