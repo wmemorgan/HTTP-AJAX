@@ -26,16 +26,37 @@ class Form extends Component {
       email: this.state.email
     }
     console.log(`Form submitted data sent: ${JSON.stringify(newRecord)}`)
+    this.setState({
+      id: '',
+      name: '',
+      age: '',
+      email: ''
+    })
+
   }
 
   render() {
     return (
       <FormContainer>
         <form onSubmit={this.formSubmitHandler}>
-          {this.props.update && <input name="id" type="number" placeholder="ID" />}
-          <input name="name" type="text" placeholder="Name" />
-          <input name="age" type="number" placeholder="Age" />
-          <input name="email" type="email" placeholder="Email" />
+          {this.props.update && 
+            <input name="id" type="number" 
+              placeholder="ID" onChange={this.inputChangeHandler} 
+              value={this.state.id} 
+            />
+          }
+          <input name="name" type="text" 
+            placeholder="Name" onChange={this.inputChangeHandler}
+            value={this.state.name} 
+          />
+          <input name="age" type="number" 
+            placeholder="Age" onChange={this.inputChangeHandler}
+            value={this.state.age} 
+          />
+          <input name="email" type="email" 
+            placeholder="Email" onChange={this.inputChangeHandler}
+            value={this.state.email}
+          />
           <Button type="submit" cta>Add Friend</Button>
         </form>
       </FormContainer>
