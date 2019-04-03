@@ -50,7 +50,7 @@ export const FriendInfoContainer = styled.div`
   margin: 20px 0;
   padding: 10px;
   border-radius: 5px;
-  box-shadow:  5px 5px 5px 0px rgba(0,0,0,0.75);
+  box-shadow:  10px 10px 5px 0px rgba(0,0,0,0.75);
   background: ${color.lightText};
 
   h3 {

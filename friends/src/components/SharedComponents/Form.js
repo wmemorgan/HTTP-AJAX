@@ -37,8 +37,8 @@ class Form extends Component {
 
   render() {
     return (
-      <FormContainer>
-        <form onSubmit={this.formSubmitHandler} {...this.props}>
+      <FormContainer {...this.props}>
+        <form onSubmit={this.formSubmitHandler} >
           {this.props.update && 
             <input name="id" type="number" 
               placeholder="ID" onChange={this.inputChangeHandler} 
@@ -57,7 +57,7 @@ class Form extends Component {
             placeholder="Email" onChange={this.inputChangeHandler}
             value={this.state.email}
           />
-          <Button type="submit" {...this.props}>
+          <Button type="submit" >
             {`${this.props.delete ? 'Delete' : 'Add'}  Friend`}
           </Button>
         </form>

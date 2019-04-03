@@ -6,7 +6,8 @@ export const FormContainer = styled.div`
   max-width: 600px;
   ${flex('column','center','center')};
   padding: 20px;
-  background: ${color.primaryColor};
+  // border: 2px double ${color.primaryColor};
+  //background: ${color.secondaryBgShading};
   font-size: ${fontSizing.sm};
 
   @media ${breakpoints[0]} {
@@ -19,7 +20,8 @@ export const FormContainer = styled.div`
     ${flex('column','center')};
     padding: 20px;
     border: 1px solid ${colorScheme.defaultBorderColor};
-    background: ${color.lightText};
+    // box-shadow:  1px 1px 0px 0px rgba(0,0,0,0.75);
+    background: ${color.primaryBgShading};
 
     @media ${breakpoints[0]} {
       width: 100%;
@@ -32,8 +34,9 @@ export const FormContainer = styled.div`
     input {
       width: 100%;
       padding: 2px 10px;
-      border: 1px solid ${color.primaryBgShading};
-      background: ${color.primaryBgShading};
+      border: 1px solid ${colorScheme.defaultBorderColor};
+      //border:none;
+      background: ${color.lightText};
       line-height: 1.5rem;
       
     }

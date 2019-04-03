@@ -22,7 +22,7 @@ body * {
 
 body {
   color: ${color.darkText};
-  background: ${color.primaryDark};
+  background: ${color.primaryColor};
   font-family: ${fontStyles.defaultFont}  
 }
 
