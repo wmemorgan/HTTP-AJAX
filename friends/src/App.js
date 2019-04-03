@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import AppContainer from './components/StyleComponents/AppStyles'
 import FriendsList from './components/FriendsComponents/FriendsList'
+import Friend from './components/FriendsComponents/Friend'
 
 class App extends Component {
   constructor() {
@@ -36,6 +37,7 @@ class App extends Component {
           <Route 
             key={friend.id}
             path={`/friends/${friend.id}`}
+            render={props => <Friend {...props} friend={friend}/>}
           />
           ))}
       </AppContainer>

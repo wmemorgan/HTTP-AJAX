@@ -17,14 +17,14 @@ export const FriendsListContainer = styled.div`
 
 export const FriendInfoContainer = styled.div`
   ${flex('column','flex-start','center')}
-  width: 100%;
+  width: 80%;
   min-width: 250px;
   margin: 5px 0;
   padding: 10px;
   border-radius: 25px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 
   0 7px 20px 0 rgba(0, 0, 0, 0.17);
-
+  background: ${color.lightText};
 
   h3 {
     font-size: ${fontSizing.s};
