@@ -33,9 +33,10 @@ const theme = {
   },
 
   fontSizing: { // Based on CSS default font-resizing of 62.5%
-    xxs: '1rem',
-    xs: '1.2rem', // base size for mobile view
-    s: '1.4rem', // base size for text
+    xxxs: '1rem',
+    xxs: '1.2rem',
+    xs: '1.4rem', // base size for mobile view
+    s: '1.6rem', // base size for text
     sm: '1.8rem', // base size for menu and button text
     m: '2rem', // base heading/sub-heading size
     ml: '3rem', // base headline size
