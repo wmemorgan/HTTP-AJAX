@@ -1,10 +1,10 @@
 const theme = {
   color: {
-    primaryColor: '#022140',
-    primaryDark: '#265077',
+    primaryColor: '#265077',
+    primaryDark: '#022140',
     primaryBgShading: '#F5F8FA',
-    secondaryColor: '#1E4258',
-    secondaryBgShading: '#B5B5B5',
+    secondaryColor: '#e4e5eb',
+    secondaryBgShading: '#1E4258',
     accent: '#51A7F8',
     emphasis: '#212121',
     darkText: '#595959',

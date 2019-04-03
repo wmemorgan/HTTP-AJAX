@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { color, colorScheme, fontSizing, flex } from '../StyleComponents/theme'
+import { color, colorScheme, fontSizing, 
+  flex, breakpoints } from '../StyleComponents/theme'
 
 export const FriendsListContainer = styled.div`
   width: 90%;
@@ -12,6 +13,12 @@ export const FriendsListContainer = styled.div`
   a {
     text-decoration: none;
     color: ${colorScheme.defaultFontColor};
+  }
+
+  @media ${breakpoints[0]} {
+    h1 {
+      font-size: ${fontSizing.m};
+    }
   }
 
 
@@ -39,7 +46,7 @@ export const Preview = styled.div`
 export const FriendInfoContainer = styled.div`
   ${flex('column','flex-start','center')}
   width: 80%;
-  min-width: 250px;
+  min-width: 300px;
   margin: 20px 0;
   padding: 10px;
   border-radius: 5px;
