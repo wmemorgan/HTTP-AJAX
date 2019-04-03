@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from "prop-types"
 
 import { FriendsListContainer, Preview } from './FriendsStyleComponents'
 // import Friend from './Friend'
@@ -21,6 +22,10 @@ const FriendsList = props => {
         )}
     </FriendsListContainer>
   )
+}
+
+FriendsList.propTypes = {
+  friends: PropTypes.array
 }
 
 export default FriendsList

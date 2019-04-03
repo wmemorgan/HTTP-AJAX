@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from "prop-types"
 
 import { FriendInfoContainer } from './FriendsStyleComponents'
 
@@ -11,6 +12,12 @@ const Friend = props => {
       <p><span className="stat-category">Email:</span> {email}</p>
     </FriendInfoContainer>
   )
+}
+
+Friend.propType = {
+  name: PropTypes.string,
+  age: PropTypes.number,
+  email: PropTypes.string
 }
 
 export default Friend
