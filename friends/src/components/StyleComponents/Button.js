@@ -6,6 +6,7 @@ const Button = styled.button`
   border: none;
   border-radius: 25px;
   color: ${color.lightText};
+  background: ${color.accent};
   font-size: ${fontSizing.s};
   font-weight: bold;
   cursor: pointer;

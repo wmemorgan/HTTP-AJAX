@@ -39,7 +39,7 @@ export const FormContainer = styled.div`
     }
 
     button {
-      width: 60%;
+      width: 50%;
       min-width: 150px;
     }
   }
