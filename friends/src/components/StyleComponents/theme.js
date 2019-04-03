@@ -2,12 +2,12 @@ const theme = {
   color: {
     primaryColor: '#022140',
     primaryDark: '#265077',
-    primaryBgShading: '#FFFFFF',
+    primaryBgShading: '#F5F8FA',
     secondaryColor: '#1E4258',
     secondaryBgShading: '#B5B5B5',
     accent: '#51A7F8',
     emphasis: '#212121',
-    darkText: '#333',
+    darkText: '#595959',
     lightText: '#FFFFFF',
     danger: 'red'
   },
