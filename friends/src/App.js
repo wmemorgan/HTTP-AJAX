@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import axios from 'axios'
 
 import AppContainer from './components/StyleComponents/AppStyles'
-import FriendsList from './components/FriendsList'
+import FriendsList from './components/FriendsComponents/FriendsList'
 
 class App extends Component {
 
