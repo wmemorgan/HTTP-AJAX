@@ -8,13 +8,17 @@ const FriendsList = props => {
   const { friends } = props
   return (
     <FriendsListContainer>
-      {friends.map(friend => (
-        <Link to={`/friends/${friend.id}`}>
-          <Preview key={friend.id}>
-            {friend.name}
-          </Preview>
-        </Link>
-    ))}
+      <h1>Friends of Lambda School</h1>
+      {friends.length > 0 ? (friends.map(friend => (
+          <Link to={`/friends/${friend.id}`}>
+            <Preview key={friend.id}>
+              {friend.name}
+            </Preview>
+          </Link>
+        ))
+      ) : (
+          <h2>Loading...</h2>
+        )}
     </FriendsListContainer>
   )
 }

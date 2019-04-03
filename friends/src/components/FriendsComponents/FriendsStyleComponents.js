@@ -40,14 +40,14 @@ export const FriendInfoContainer = styled.div`
   ${flex('column','flex-start','center')}
   width: 80%;
   min-width: 250px;
-  margin: 5px 0;
+  margin: 20px 0;
   padding: 10px;
-  border-radius: 25px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 
-  0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  border-radius: 5px;
+  box-shadow:  5px 5px 5px 0px rgba(0,0,0,0.75);
   background: ${color.lightText};
 
   h3 {
+    margin: 5px 0;
     font-size: ${fontSizing.s};
     font-weight: bold;
     color: ${colorScheme.headingColor};
@@ -55,15 +55,11 @@ export const FriendInfoContainer = styled.div`
 
   p {
     font-size: ${fontSizing.xs};
+    margin: 5px 0;
   }
 
   .stat-category {
     font-weight: bold;
-  }
-
-  & a {
-    text-decoration: none;
-    color: ${colorScheme.defaultFontColor}
   }
 
 
