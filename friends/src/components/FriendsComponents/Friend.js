@@ -2,7 +2,7 @@ import React from 'react'
 
 import { FriendInfoContainer } from './FriendsStyleComponents'
 
-export default Friend = props => {
+const Friend = props => {
   const { name, age, email } = props.friend
   return (
     <FriendInfoContainer>
@@ -12,3 +12,5 @@ export default Friend = props => {
     </FriendInfoContainer>
   )
 }
+
+export default Friend

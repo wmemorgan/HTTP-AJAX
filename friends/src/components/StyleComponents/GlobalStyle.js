@@ -21,7 +21,8 @@ body * {
 }
 
 body {
-  color: ${color.lightText};
+  color: ${color.darkText};
+  background: ${color.primaryColor};
   font-family: ${fontStyles.defaultFont}  
 }
 
