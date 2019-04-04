@@ -27,7 +27,7 @@ export const FriendsListContainer = styled.div`
 export const Preview = styled.div`
   width: 90%;
   min-width: 300px;
-  ${flex('column', 'flex-start', 'center')}
+  ${flex('row', 'center', 'space-between')}
   margin: 10px 0;
   padding: 10px;
   border: 0.5px solid ${color.primaryBgShading};
@@ -67,6 +67,12 @@ export const FriendInfoContainer = styled.div`
 
   .stat-category {
     font-weight: bold;
+  }
+
+  button {
+    width: 100px;
+    align-self: center;
+    margin-top: 20px;
   }
 
 

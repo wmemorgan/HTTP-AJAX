@@ -14,7 +14,8 @@ const FriendsList = props => {
       {friends.length > 0 ? (friends.map(friend => (
           <Link key={friend.id} to={`/friends/${friend.id}`}>
             <Preview>
-              {friend.name}
+              <div>{friend.name}</div>
+              <div>id: {friend.id}</div>
             </Preview>
           </Link>
         ))) : (

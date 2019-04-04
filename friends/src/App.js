@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 import AppContainer from './components/StyleComponents/AppStyles'
@@ -9,11 +9,12 @@ import Header from './components/Header'
 import Form from './components/SharedComponents/Form'
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       friends: []
     };
+    console.log(`App props are: `, this.props)
   }
 
   updateFriends = data => {
@@ -21,6 +22,18 @@ class App extends Component {
       () => console.log(`updateFriends invoked state is: `, this.state)
     )
   }
+
+  deleteFriend = id => {
+    console.log("Friend is being deleted")
+    axios
+      .delete(`http://localhost:5000/friends/${id}`)
+      .then(response => {
+        // Update main app state
+        this.updateFriends(response.data)
+        this.props.history.push('/')
+      })
+      .catch(err => console.log(err))
+  };
 
   componentDidMount() {
     axios
@@ -43,8 +56,7 @@ class App extends Component {
           render={props => 
             <FriendsList 
               {...props} 
-              {...this.state} 
-              updateFriends={this.updateFriends}
+              {...this.state}
             />}
         />
         <Route 
@@ -71,6 +83,7 @@ class App extends Component {
               <Form 
                 {...props}
                 updateFriends={this.updateFriends}
+                deleteFriend={this.deleteFriend}
                 delete
               />}
         />
@@ -78,7 +91,13 @@ class App extends Component {
           <Route
             key={friend.id}
             path={`/friends/${friend.id}`}
-            render={props => <Friend {...props} friend={friend} />}
+            render={props => 
+              <Friend 
+                {...props} 
+                friend={friend} 
+                deleteFriend={this.deleteFriend}
+              />
+            }
           />
         ))}
       </AppContainer>
@@ -86,4 +105,6 @@ class App extends Component {
   }
 }
 
-export default App;
+const AppWithRouter = withRouter(App)
+
+export default AppWithRouter;
