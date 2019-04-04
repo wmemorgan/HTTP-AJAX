@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FormContainer } from './FormStyles'
 import Button from '../StyleComponents/Button'
+import axios from 'axios'
 
 class Form extends Component {
   constructor(props) {
@@ -18,21 +19,33 @@ class Form extends Component {
   }
 
   formSubmitHandler = e => {
+    // prevent default
     e.preventDefault()
+
+    // gather form data
     let newRecord = {
-      id: this.state.id === '' ? Date.now() : this.state.id,
       name: this.state.name,
       age: this.state.age,
       email: this.state.email
     }
+
+    // send new record to api
+    axios.post('http://localhost:5000/friends', newRecord)
+      .then(response => {
+        this.props.updateFriends(response.data)
+        this.props.history.push('/')
+      })
+      .catch(err => console.log(err))
+
     console.log(`Form submitted data sent: ${JSON.stringify(newRecord)}`)
+    
+    // reset form fields
     this.setState({
       id: '',
       name: '',
       age: '',
       email: ''
     })
-
   }
 
   render() {

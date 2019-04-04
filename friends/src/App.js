@@ -14,14 +14,20 @@ class App extends Component {
     };
   }
 
+  updateFriends = data => {
+    this.setState({ friends: data },
+      () => console.log(`updateFriends invoked state is: `, this.state)
+    )
+  }
+
   componentDidMount() {
     axios
-    .get('http://localhost:5000/friends')
-    .then(response => {
-      this.setState({friends: response.data}, 
-        () => console.log(`CDM invoked state is: `, this.state))
-    })
-    .catch(error => console.log(`Data retrieval error: ${error}`))
+      .get('http://localhost:5000/friends')
+      .then(response => {
+        this.setState({ friends: response.data },
+          () => console.log(`CDM invoked state is: `, this.state))
+      })
+      .catch(error => console.log(`Data retrieval error: ${error}`))
   }
 
   render() {
@@ -29,17 +35,22 @@ class App extends Component {
     return (
       <AppContainer>
         {/* Add routes */}
-        <Route 
+        <Route
           exact path='/'
-          render={props => <FriendsList {...props} {...this.state}/>} 
+          render={props => 
+            <FriendsList 
+              {...props} 
+              {...this.state} 
+              updateFriends={this.updateFriends}
+            />}
         />
         {this.state.friends.map(friend => (
-          <Route 
+          <Route
             key={friend.id}
             path={`/friends/${friend.id}`}
-            render={props => <Friend {...props} friend={friend}/>}
+            render={props => <Friend {...props} friend={friend} />}
           />
-          ))}
+        ))}
       </AppContainer>
     );
   }
