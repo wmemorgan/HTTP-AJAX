@@ -4,6 +4,12 @@ import axios from 'axios'
 import { FormContainer } from './FormStyles'
 import Button from '../StyleComponents/Button'
 
+// {
+//   this.props.delete ?
+//   this.deleteRecordSubmitHandler :
+//   this.addRecordSubmitHandler
+// } 
+
 class Form extends Component {
   constructor(props) {
     super(props)
@@ -19,7 +25,7 @@ class Form extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  formSubmitHandler = e => {
+  addRecord = e => {
     // prevent default
     e.preventDefault()
 
@@ -49,10 +55,52 @@ class Form extends Component {
     })
   }
 
+  updateRecord = e => {
+    // prevent default
+    e.preventDefault()
+    // send updated record to api
+    axios.put(`http://localhost:5000/friends/${this.state.id}`, this.state)
+      .then(response => {
+        this.props.updateFriends(response.data)
+        this.props.history.push('/')
+      })
+      .catch(err => console.log(err))
+
+    console.log(`Form submitted data sent: ${JSON.stringify(this.state)}`)
+    
+    // reset form fields
+    this.setState({
+      id: '',
+      name: '',
+      age: '',
+      email: ''
+    })
+  }
+
+  deleteRecord = e => {
+    // prevent default
+    e.preventDefault()
+    // invoke the deleteFriend method and pass id
+    this.props.deleteFriend(this.state.id)
+    // reset form field
+    this.setState({id: ''})
+  }
+
+   submitHandler = e => {
+      e.preventDefault()
+      if(this.props.update) {
+        this.updateRecord(e)
+      } else if(this.props.delete) {
+        this.deleteRecord(e)
+      } else {
+        this.addRecord(e)
+      }
+  }
+
   render() {
     return (
       <FormContainer {...this.props}>
-        <form onSubmit={this.formSubmitHandler} >
+        <form onSubmit={this.submitHandler}>
           {(this.props.update || this.props.delete) && 
             <input name="id" type="number" 
               placeholder="ID" onChange={this.inputChangeHandler} 
