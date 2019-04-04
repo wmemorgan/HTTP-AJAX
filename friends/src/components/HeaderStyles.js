@@ -16,10 +16,15 @@ export const HeaderContainer = styled.header`
     font-size: ${fontSizing.s};
   }
 
+  @media ${breakpoints[0]} {
+    align-items: flex-start;
+    padding-left: 5vw;
+    
+  }
+
 `
 
 export const Nav = styled.nav`
-  border: 1px solid red;
   width: 90%;
   max-width: 600px;
   ${flex('row','center','space-between')}
@@ -29,20 +34,37 @@ export const Nav = styled.nav`
   }
 
   @media ${breakpoints[0]} {
-    width: 100%;
+    width: 50%;
     display: ${props => props.show ? 'flex': 'none'};
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    z-index: 10;
+
+    & a {
+      width: 100%;
+      padding: 10px 0;
+    }
+  }
+
+`
+
+export const CrudNav = styled.div`
+  width: 30%;
+  ${flex('row', 'center', 'space-between')};
+
+  @media ${breakpoints[0]} {
+    width: 100%;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     & a {
       width: 100%;
-      padding: 10px;
+      padding: 10px 0;
       border-top: 1px solid ${colorScheme.defaultBorderColor};
-
-      a:first-child {
-        border-top: none;
-      }
     }
   }
 
