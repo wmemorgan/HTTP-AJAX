@@ -6,8 +6,6 @@ export const FormContainer = styled.div`
   max-width: 600px;
   ${flex('column','center','center')};
   padding: 20px;
-  // border: 2px double ${color.primaryColor};
-  //background: ${color.secondaryBgShading};
   font-size: ${fontSizing.sm};
 
   @media ${breakpoints[0]} {
@@ -19,7 +17,6 @@ export const FormContainer = styled.div`
     width: 90%;
     ${flex('column','center')};
     padding: 20px;
-    border: 1px solid ${colorScheme.defaultBorderColor};
     box-shadow:  10px 10px 5px 0px rgba(0,0,0,0.75);
     background: ${color.primaryBgShading};
 
@@ -35,7 +32,6 @@ export const FormContainer = styled.div`
       width: 100%;
       padding: 2px 10px;
       border: 1px solid ${colorScheme.defaultBorderColor};
-      //border:none;
       background: ${color.lightText};
       line-height: 1.5rem;
       
