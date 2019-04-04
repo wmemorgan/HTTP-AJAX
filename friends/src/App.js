@@ -5,6 +5,7 @@ import axios from 'axios'
 import AppContainer from './components/StyleComponents/AppStyles'
 import FriendsList from './components/FriendsComponents/FriendsList'
 import Friend from './components/FriendsComponents/Friend'
+import Header from './components/Header'
 
 class App extends Component {
   constructor() {
@@ -34,6 +35,7 @@ class App extends Component {
     console.log(`render state is: `, this.state)
     return (
       <AppContainer>
+        <Header />
         {/* Add routes */}
         <Route
           exact path='/'
@@ -44,6 +46,7 @@ class App extends Component {
               updateFriends={this.updateFriends}
             />}
         />
+        Route
         {this.state.friends.map(friend => (
           <Route
             key={friend.id}
