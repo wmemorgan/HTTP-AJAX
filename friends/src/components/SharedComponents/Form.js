@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+
 import { FormContainer } from './FormStyles'
 import Button from '../StyleComponents/Button'
-import axios from 'axios'
 
 class Form extends Component {
   constructor(props) {
@@ -52,26 +53,34 @@ class Form extends Component {
     return (
       <FormContainer {...this.props}>
         <form onSubmit={this.formSubmitHandler} >
-          {this.props.update && 
+          {(this.props.update || this.props.delete) && 
             <input name="id" type="number" 
               placeholder="ID" onChange={this.inputChangeHandler} 
               value={this.state.id} 
             />
           }
-          <input name="name" type="text" 
-            placeholder="Name" onChange={this.inputChangeHandler}
-            value={this.state.name} 
-          />
-          <input name="age" type="number" 
-            placeholder="Age" onChange={this.inputChangeHandler}
-            value={this.state.age} 
-          />
-          <input name="email" type="email" 
-            placeholder="Email" onChange={this.inputChangeHandler}
-            value={this.state.email}
-          />
-          <Button type="submit" >
-            {`${this.props.delete ? 'Delete' : 'Add'}  Friend`}
+          {!this.props.delete && (
+            <>
+              <input name="name" type="text" 
+                placeholder="Name" onChange={this.inputChangeHandler}
+                value={this.state.name} 
+              />
+              <input name="age" type="number" 
+                placeholder="Age" onChange={this.inputChangeHandler}
+                value={this.state.age} 
+              />
+              <input name="email" type="email" 
+                placeholder="Email" onChange={this.inputChangeHandler}
+                value={this.state.email}
+              />
+            </>
+          )}
+          <Button type="submit" {...this.props}>
+            {`${this.props.add ? 'Add' : ''} 
+              ${this.props.update ? 'Update' : ''}  
+              ${this.props.delete ? 'Delete' : ''}   
+              Friend
+            `}
           </Button>
         </form>
       </FormContainer>

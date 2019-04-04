@@ -5,8 +5,6 @@ const Button = styled.button`
   padding: 10px;
   border: none;
   border-radius: 25px;
-  color: ${color.lightText};
-  background: ${color.accent};
   font-size: ${fontSizing.s};
   font-weight: bold;
   cursor: pointer;
@@ -22,16 +20,27 @@ const Button = styled.button`
   `}
 
   ${props =>
-    props.delete &&
+    props.add &&
     css`
-      background: ${color.danger}; 
+      color: ${color.lightText};
+      background: ${color.accent}; 
   `}
 
   ${props =>
-    props.cta &&
+    props.update &&
     css`
-      background: ${color.accent}; 
+      color: ${color.lightText};
+      background: coral; 
   `}
+
+  ${props =>
+    props.delete &&
+    css`
+      color: ${color.lightText};
+      background: ${color.danger}; 
+  `}
+
+
 `
 
 export default Button
