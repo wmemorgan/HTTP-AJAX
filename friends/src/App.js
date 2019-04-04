@@ -6,6 +6,7 @@ import AppContainer from './components/StyleComponents/AppStyles'
 import FriendsList from './components/FriendsComponents/FriendsList'
 import Friend from './components/FriendsComponents/Friend'
 import Header from './components/Header'
+import Form from './components/SharedComponents/Form'
 
 class App extends Component {
   constructor() {
@@ -46,7 +47,33 @@ class App extends Component {
               updateFriends={this.updateFriends}
             />}
         />
-        Route
+        <Route 
+            path='/add'
+            render={props => 
+              <Form 
+                {...props}
+                updateFriends={this.updateFriends}
+                add
+              />}
+        />
+        <Route 
+            path='/update'
+            render={props => 
+              <Form 
+                {...props}
+                updateFriends={this.updateFriends}
+                update
+              />}
+        />
+        <Route 
+            path='/delete'
+            render={props => 
+              <Form 
+                {...props}
+                updateFriends={this.updateFriends}
+                delete
+              />}
+        />
         {this.state.friends.map(friend => (
           <Route
             key={friend.id}
