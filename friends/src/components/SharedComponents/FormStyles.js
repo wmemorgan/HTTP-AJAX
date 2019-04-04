@@ -20,7 +20,7 @@ export const FormContainer = styled.div`
     ${flex('column','center')};
     padding: 20px;
     border: 1px solid ${colorScheme.defaultBorderColor};
-    // box-shadow:  1px 1px 0px 0px rgba(0,0,0,0.75);
+    box-shadow:  10px 10px 5px 0px rgba(0,0,0,0.75);
     background: ${color.primaryBgShading};
 
     @media ${breakpoints[0]} {
