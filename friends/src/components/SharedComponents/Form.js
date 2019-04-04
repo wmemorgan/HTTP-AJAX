@@ -8,7 +8,7 @@ class Form extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: '',
+      id: this.props.update ? this.props.id : '',
       name: '',
       age: '',
       email: ''
@@ -47,6 +47,14 @@ class Form extends Component {
       age: '',
       email: ''
     })
+  }
+
+  prepopulateRecord = id => {
+    if(id === this.props.id) {
+      this.setState((
+        this.props.friend
+      ))
+    }
   }
 
   updateRecord = e => {
@@ -90,6 +98,21 @@ class Form extends Component {
         this.addRecord(e)
       }
   }
+
+  componentDidMount() {
+    if(this.props.update) {
+      this.prepopulateRecord(this.state.id)
+    }
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.id !== this.state.id) {
+  //     if (this.props.update) {
+  //       this.prepopulateRecord(prevState.id)
+  //     }
+  //   }
+
+  // }
 
   render() {
     return (

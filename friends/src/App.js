@@ -68,11 +68,13 @@ class App extends Component {
                 add
               />}
         />
-        <Route 
+        <Route
+            exact
             path='/update'
             render={props => 
               <Form 
                 {...props}
+                {...this.state}
                 updateFriends={this.updateFriends}
                 update
               />}
@@ -98,6 +100,20 @@ class App extends Component {
                 deleteFriend={this.deleteFriend}
               />
             }
+          />
+        ))}
+        {this.state.friends.map(friend => (
+          <Route
+            key={friend.id}
+            path={`/update/${friend.id}`}
+            render={props =>
+              <Form
+                {...props}
+                friend={friend}
+                id={friend.id}
+                updateFriends={this.updateFriends}
+                update
+              />}
           />
         ))}
       </AppContainer>
