@@ -4,12 +4,6 @@ import axios from 'axios'
 import { FormContainer } from './FormStyles'
 import Button from '../StyleComponents/Button'
 
-// {
-//   this.props.delete ?
-//   this.deleteRecordSubmitHandler :
-//   this.addRecordSubmitHandler
-// } 
-
 class Form extends Component {
   constructor(props) {
     super(props)
