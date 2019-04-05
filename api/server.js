@@ -83,7 +83,7 @@ router.delete('/friends/:id', (req, res) => {
 });
 
 // route path to lambda
-app.use('/.netlify/functions/server', router) 
+app.use('/.netlify/functions/server/api', router) 
 
 // export to lambda
 module.exports = app
