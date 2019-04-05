@@ -40,28 +40,28 @@ export const Preview = styled.div`
     background: ${colorScheme.defaultFontColor};
   } 
 
-
 `
 
 export const FriendInfoContainer = styled.div`
   ${flex('column','flex-start','center')}
   width: 80%;
   min-width: 300px;
+  max-width: 600px;
   margin: 20px 0;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   box-shadow:  10px 10px 5px 0px rgba(0,0,0,0.75);
   background: ${color.lightText};
 
   h3 {
     margin: 5px 0;
-    font-size: ${fontSizing.s};
+    font-size: ${fontSizing.m};
     font-weight: bold;
     color: ${colorScheme.headingColor};
   }
 
   p {
-    font-size: ${fontSizing.xs};
+    font-size: ${fontSizing.s};
     margin: 5px 0;
   }
 
@@ -69,13 +69,38 @@ export const FriendInfoContainer = styled.div`
     font-weight: bold;
   }
 
-  button {
-    width: 100px;
-    align-self: center;
-    margin-top: 20px;
+  @media ${breakpoints[0]} {
+    h3 {
+      font-size: ${fontSizing.sm};
+    }
+
+    p {
+      font-size: ${fontSizing.xs};
+    }
   }
 
+`
 
+export const ButtonMenu = styled.nav`
+  align-self: center;
+  width: 80%;
+  margin-top: 20px;
+  ${flex('row','center','space-evenly')};
+
+  button {
+    width: 100px;
+    font-size: ${fontSizing.xs};
+  }
+
+  @media ${breakpoints[0]} {
+    ${flex('column', 'center', 'center')};
+
+    button {
+      width: 70px;
+      font-size: ${fontSizing.xxs};
+      margin-bottom: 20px;
+    }
+  }
 `
 
 
