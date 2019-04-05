@@ -8,6 +8,8 @@ import Friend from './components/FriendsComponents/Friend'
 import Header from './components/Header'
 import Form from './components/SharedComponents/Form'
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || '/'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,7 @@ class App extends Component {
   deleteFriend = id => {
     console.log("Friend is being deleted")
     axios
-      .delete(`http://localhost:5000/friends/${id}`)
+      .delete(`${API_ENDPOINT}.netlify/functions/server/api/friends/${id}`)
       .then(response => {
         // Update main app state
         this.updateFriends(response.data)
@@ -37,7 +39,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:5000/friends')
+      .get(`${API_ENDPOINT}.netlify/functions/server/api/friends`)
       .then(response => {
         this.setState({ friends: response.data },
           () => console.log(`CDM invoked state is: `, this.state))

@@ -4,6 +4,8 @@ import axios from 'axios'
 import { FormContainer } from './FormStyles'
 import Button from '../StyleComponents/Button'
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || '/'
+
 class Form extends Component {
   constructor(props) {
     super(props)
@@ -31,7 +33,7 @@ class Form extends Component {
     }
 
     // send new record to api
-    axios.post('http://localhost:5000/friends', newRecord)
+    axios.post(`${API_ENDPOINT}.netlify/functions/server/api/friends`, newRecord)
       .then(response => {
         this.props.updateFriends(response.data)
         this.props.history.push('/')
@@ -61,7 +63,7 @@ class Form extends Component {
     // prevent default
     e.preventDefault()
     // send updated record to api
-    axios.put(`http://localhost:5000/friends/${this.state.id}`, this.state)
+    axios.put(`${API_ENDPOINT}.netlify/functions/server/api/friends/${this.state.id}`, this.state)
       .then(response => {
         this.props.updateFriends(response.data)
         this.props.history.push('/')
