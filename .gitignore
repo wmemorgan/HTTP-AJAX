@@ -1,6 +1,12 @@
 # dependencies
 /node_modules
-/friends/node_modules
+/client/node_modules
+
+
+# production
+/build
+/client/build
+/function
 
 # misc
 .DS_Store
