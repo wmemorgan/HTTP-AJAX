@@ -1,8 +1,10 @@
 const express = require('express');
+const serverless = require('serverless-http')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
+const router = express.Router()
 let nextId = 7;
 
 function getNewId() {
@@ -51,17 +53,17 @@ let friends = [
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/friends', (req, res) => {
+router.get('/friends', (req, res) => {
   res.status(200).json(friends);
 });
 
-app.post('/friends', (req, res) => {
+router.post('/friends', (req, res) => {
   const friend = { id: getNewId(), ...req.body };
   friends = [...friends, friend];
   res.status(201).json(friends);
 });
 
-app.put('/friends/:id', (req, res) => {
+router.put('/friends/:id', (req, res) => {
   const { id } = req.params;
   let friendIndex = friends.findIndex(friend => friend.id == id);
 
@@ -75,11 +77,14 @@ app.put('/friends/:id', (req, res) => {
   }
 });
 
-app.delete('/friends/:id', (req, res) => {
+router.delete('/friends/:id', (req, res) => {
 	friends = friends.filter(friend => friend.id != req.params.id);
 	res.status(200).json(friends);
 });
 
-app.listen(5000, () => {
-  console.log('server listening on port 5000');
-});
+// route path to lambda
+app.use('/.netlify/functions/server', router) 
+
+// export to lambda
+module.exports = app
+module.exports.handler = serverless(app)
